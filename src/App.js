@@ -287,7 +287,7 @@ ${AHMED_PROFILE.experience.map(e=>`${e.title} (${e.dates})\n${e.bullets.map(b=>`
       const res = await fetch("https://api.anthropic.com/v1/messages", {
         method:"POST",
         headers:{ "Content-Type":"application/json", "x-api-key":apiKey, "anthropic-version":"2023-06-01", "anthropic-dangerous-direct-browser-access":"true" },
-        body: JSON.stringify({ model:"claude-sonnet-4-20250514", max_tokens:2000, messages:[{role:"user",content:docType==="cv"?cvOnly:docType==="cover"?coverOnly:both}] })
+        body: JSON.stringify({ model:"claude-sonnet-4-5", max_tokens:2000, messages:[{role:"user",content:docType==="cv"?cvOnly:docType==="cover"?coverOnly:both}] })
       });
       const data = await res.json();
       if (data.error) { setOutput("API Error: "+data.error.message); }
